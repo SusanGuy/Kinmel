@@ -1,3 +1,4 @@
+import 'package:Kinmel/screens/products_overview_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,19 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Kinmel")),
-      body: Center(
-        child: Text("Let's build a shop"),
-      ),
+      home: ProductsOverViewScreen(),
     );
   }
 }
