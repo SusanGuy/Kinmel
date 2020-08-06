@@ -1,6 +1,7 @@
 import 'package:Kinmel/providers/Cart.dart';
 import 'package:Kinmel/providers/orders.dart';
 import 'package:Kinmel/screens/cart_screen.dart';
+import 'package:Kinmel/screens/order_screen.dart';
 import 'package:Kinmel/screens/product_detail_screen.dart';
 import 'package:Kinmel/screens/products_overview_screen.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           "/": (ctx) => ProductsOverViewScreen(),
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
+          OrdersScreen.routeName: (ctx) => OrdersScreen()
         },
       ),
     );

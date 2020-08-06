@@ -1,5 +1,6 @@
 import 'package:Kinmel/providers/Cart.dart';
 import 'package:Kinmel/screens/cart_screen.dart';
+import 'package:Kinmel/widgets/app_drawer.dart';
 import 'package:Kinmel/widgets/badge.dart';
 import 'package:Kinmel/widgets/products_grid.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class _ProductsOverViewScreenState extends State<ProductsOverViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: AppDrawer(),
       appBar: AppBar(
         title: Text("Kinmel"),
         actions: <Widget>[
