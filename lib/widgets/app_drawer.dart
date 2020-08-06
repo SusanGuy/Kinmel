@@ -1,4 +1,5 @@
 import 'package:Kinmel/screens/order_screen.dart';
+import 'package:Kinmel/screens/user_product_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -19,6 +20,13 @@ class AppDrawer extends StatelessWidget {
           leading: Icon(Icons.payment),
           title: Text("Orders"),
           onTap: () => Navigator.of(context).pushNamed(OrdersScreen.routeName),
+        ),
+        Divider(),
+        ListTile(
+          leading: Icon(Icons.supervised_user_circle),
+          title: Text("Manage Products"),
+          onTap: () =>
+              Navigator.of(context).pushNamed(UserProductsScreen.routeName),
         )
       ],
     ));
