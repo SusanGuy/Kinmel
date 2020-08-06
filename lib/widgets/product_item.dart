@@ -1,4 +1,4 @@
-import 'package:Kinmel/models/product.dart';
+import 'package:Kinmel/providers/product.dart';
 import 'package:Kinmel/providers/Cart.dart';
 import 'package:Kinmel/screens/product_detail_screen.dart';
 import 'package:flutter/material.dart';

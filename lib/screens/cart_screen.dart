@@ -1,4 +1,5 @@
 import 'package:Kinmel/providers/Cart.dart' show Cart;
+import 'package:Kinmel/providers/orders.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import "../widgets/cart_item.dart";
@@ -36,7 +37,12 @@ class CartScreen extends StatelessWidget {
                       backgroundColor: Theme.of(context).primaryColor,
                     ),
                     FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        final cartProducts = cart.items.values.toList();
+                        Provider.of<Orders>(context, listen: false)
+                            .addOrder(cartProducts, cart.totalAmount);
+                        cart.clearCart();
+                      },
                       child: Text("ORDER NOW"),
                       textColor: Theme.of(context).primaryColor,
                     ),
