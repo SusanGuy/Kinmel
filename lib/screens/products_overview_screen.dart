@@ -1,4 +1,5 @@
 import 'package:Kinmel/providers/Cart.dart';
+import 'package:Kinmel/providers/products.dart';
 import 'package:Kinmel/screens/cart_screen.dart';
 import 'package:Kinmel/widgets/app_drawer.dart';
 import 'package:Kinmel/widgets/badge.dart';
@@ -15,6 +16,30 @@ class ProductsOverViewScreen extends StatefulWidget {
 
 class _ProductsOverViewScreenState extends State<ProductsOverViewScreen> {
   var _showOnlyFavorites = false;
+  var _isInit = true;
+  var _isLoading = false;
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      setState(() {
+        _isLoading = true;
+      });
+      try {
+        Provider.of<Products>(context).fetchAndSetProducts().then((_) {
+          setState(() {
+            _isLoading = false;
+          });
+        });
+      } catch (e) {
+        print(e);
+      }
+    }
+    _isInit = false;
+
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +77,11 @@ class _ProductsOverViewScreenState extends State<ProductsOverViewScreen> {
           )
         ],
       ),
-      body: ProductsGrid(_showOnlyFavorites),
+      body: _isLoading
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+          : ProductsGrid(_showOnlyFavorites),
     );
   }
 }
